@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+/*===========================
+Table of contents:
+
+A: Mobile
+  1. Global styles
+  2. Layout
+  3. Layout
+  4. Styling Components
+
+B: min-width: 900px
+  1. Global styles
+  2. Layout
+  3. Layout
+  4. Styling Components
+===========================*/
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        A: Mobile
+<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+/*-------- 1. Global Styles --------*/
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --desaturated-red: hsl(0, 36%, 70%);
+  --soft-red: hsl(0, 93%, 68%);
+  --dark-grayish-red: hsl(0, 6%, 24%);
+  --borders: hsl(356, 18%, 83%);
+  --light-gradient: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+  --dark-gradient: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+body {
+  background: var(--light-gradient);
+}
+
+/*-------- 2. Typography --------*/
+h1 {
+  width: 7ch;
+  font-size: 2.7rem;
+  font-weight: 300;
+  color: var(--desaturated-red);
+  line-height: 2.9rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h1 span {
+  font-weight: 600;
+  color: var(--dark-grayish-red);
+}
+
+p, .email::placeholder {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--desaturated-red);
+  text-align: center;
+}
+
+/*-------- 3. Layout --------*/
+header {
+  min-height: 10vh;
+}
+
+.logo {
+  --margin-calc: calc(calc(10vh - 30px) / 2);
+  /*(height of the <header> - height of the logo) / 2 => to distribute the result on top and botton margin*/
+  margin: var(--margin-calc) var(--margin-calc);
+  height: 31px;
+}
+
+section.hero_img {
+  min-height: 30vh;
+  background-image: url("images/hero-mobile.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+main {
+  min-height: 57vh;
+  padding: 5vh 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2vh;
+}
+
+main p {
+  max-width: 360px;
+}
+
+footer {
+  height: 3vh;
+}
+
+/*---------- 4. Styling Components ----------*/
+form {
+  position: relative;
+}
+
+.email {
+  height: 3rem;
+  width: 80vw;
+  background: transparent;
+  padding-left: 1.5rem;
+  border: 1px solid var(--borders);
+  border-radius: 1.5rem;
+  color: black;
+}
+
+.email::placeholder {
+  text-align: left;
+  color: var(--borders);
+}
+
+.invalid {
+  position: relative;
+  border: 2px solid var(--soft-red);
+}
+
+.error::before { /*Error icon inside input field*/
+  position: absolute;
+  bottom: 1.5rem;
+  right: calc(18vw + 0.5rem);
+  transform: translateY(50%);
+  height: 1.2rem;
+  width: 1.2rem;
+  background-image: url(images/icon-error.svg);
+  background-size: contain;
+  content: "";
+}
+
+.error::after {  /*Error message under form*/
+  position: absolute;
+  bottom: -1.5rem;
+  left: 1.5rem;
+  content: "Please provide a valid email";
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--soft-red);
+}
+
+.email:focus {
+  outline: none; /*Prevent default blue outline on focus*/
+}
+
+.submit {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 3rem;
+  width: 18vw;
+  background: var(--dark-gradient);
+  border: none;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 2rem var(--desaturated-red);
+  cursor: pointer;
+}
+
+.submit:hover {
+  opacity: 0.8;
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<
+      B: min-width: 900px
+<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+@media screen and (min-width: 900px) {
+
+  /*-------- 1. Global Styles --------*/
+  body {
+    background-image: url(images/bg-pattern-desktop.svg);
+    background-size: 60vw;
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-columns: 60vw 40vw;
+    grid-template-rows: 25vh 72vh 3vh;
+    grid-template-areas: "header hero"
+      "main hero"
+      "footer hero";
+  }
+
+  /*-------- 2. Typography --------*/
+  h1 {
+    font-size: 4rem;
+    line-height: 4.5rem;
+    text-align: left;
+  }
+
+  p, .email::placeholder {
+    width: 34vw;
+    line-height: 1.6rem;
+    font-size: 1.2rem;
+    text-align: left;
+  }
+
+  /*-------- 3. Layout--------*/
+  header {
+    grid-area: header;
+    height: 25vh;
+    padding-left: 6.8vw;
+    display: flex;
+    align-items: center;
+  }
+
+  section.hero_img {
+    grid-area: hero;
+    height: 100vh;
+    background-image: url("images/hero-desktop.jpg");
+  }
+
+  main {
+    grid-area: main;
+    margin-top: 3vh;
+    height: 69vh;
+    padding: 0 8vw;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 2vh;
+  }
+
+  footer {
+    grid-area: footer;
+    width: 60vw;
+  }
+
+  /*-------- 3. Styling Components--------*/
+  .email {
+    margin-top: 3vh;
+    width: 34vw;
+    font-weight: 300;
+    border-radius: 1.5rem;
+    font-size: 1.1rem;
+    padding-left: 1.5rem;
+    height: 3rem;
+  }
+
+  .error::before {
+    right: calc(8vw + 0.5rem);
+  }
+
+  .error::before {
+    font-size: 1.2rem;
+  }
+
+  .submit {
+    margin-top: 3vh;
+    width: 8vw;
+    border-radius: 1.5rem;
+    height: 3rem;
+  }
+}
