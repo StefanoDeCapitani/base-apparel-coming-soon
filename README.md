@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/please-provide-a-valid-title-A6uGYxryU)
+- Live Site URL: [https://stefanodecapitani.github.io/base-apparel-coming-soon/](https://stefanodecapitani.github.io/base-apparel-coming-soon/)
 
 ## My process
 
@@ -56,8 +56,7 @@ and no hidden html elements.
 
 ### Continued development
 
-I feel like I've only touched the surface of validation and form handling,
-I'm going to study more about this subject.
+I feel like I've only touched the surface of validation and form handling, I'm going to study more about this subject.
 
 ## Author
 
